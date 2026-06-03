@@ -61,7 +61,7 @@ The vibration signals were collected under the following operating condition:
 
 | Parameter | Value |
 |---|---:|
-| Rotational speed | 6,000 rpm |
+| Rotational speed | 600rpm-6000 rpm |
 | Sampling frequency | 25.6 kHz |
 | Sampling duration | 60 s per condition |
 | Signal type | Acceleration |
@@ -69,41 +69,3 @@ The vibration signals were collected under the following operating condition:
 | Bearing type | 6205 rolling bearing |
 
 For each bearing condition, vibration signals from the three acceleration directions were recorded and organized into samples suitable for neural network training.
-
-## Suggested Data Format
-
-A recommended data organization is shown below. Adjust this section if your repository uses a different file structure.
-
-```text
-.
-├── README.md
-├── data/
-│   ├── normal/
-│   ├── inner_race_fault/
-│   ├── outer_race_fault/
-│   ├── rolling_element_fault/
-│   └── cage_fault/
-├── labels.csv
-└── scripts/
-```
-
-A recommended metadata file format is:
-
-| Column | Description |
-|---|---|
-| `file_name` | Name of the signal file |
-| `label` | Numeric class label |
-| `condition` | Bearing health condition |
-| `speed_rpm` | Rotational speed in rpm |
-| `sampling_frequency_hz` | Sampling frequency in Hz |
-| `duration_s` | Acquisition duration in seconds |
-| `channels` | Signal channels, such as `x,y,z` |
-
-## Usage Notes
-
-When using this dataset, please ensure that:
-
-- Training, validation, and test sets are split without data leakage.
-- Signal segmentation parameters, such as window length and overlap ratio, are clearly reported.
-- Channel usage is specified, for example single-axis input or three-axis input.
-- Preprocessing methods such as normalization, filtering, or time-frequency transformation are documented.
